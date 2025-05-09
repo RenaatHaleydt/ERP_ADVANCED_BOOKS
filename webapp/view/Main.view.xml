@@ -1,38 +1,97 @@
 <mvc:View controllerName="booksapplication.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <Table id="booksTable" items="{/BookSet}">
-                <headerToolbar>
-                    <OverflowToolbar>
-                        <Title text="Books" level="H2"/>
-                        <ToolbarSpacer/>
-                        <!-- <Button icon="sap-icon://activities" type="Transparent" press="onNavToOffers" text="Nav to Offers" /> -->
-                        <!-- <Button icon="sap-icon://excel-attachment" press="onExport"/> -->
-                        <!-- <Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed"/> -->
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+	xmlns:f="sap.f"
+		xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:svm="sap.ui.comp.smartvariants">
+		<f:DynamicPage >
+			
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" >
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="Title" label="Title" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Name"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/Genres',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Category"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/ProductCategories',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="SupplierName"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/ProductSuppliers',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table
+					id="booksTable"
+					inset="false"
+					items="{
+						path: '/BookSet'
+					}"
+				>
+					<columns>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Titel"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Autheur"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Genre"/>
+						</Column>
+					</columns>
 
-                    </OverflowToolbar>
-                </headerToolbar>
-                <columns>
-                    <Column id="titleCol" width="12em">
-                        <Text text="Titel"></Text>
-                    </Column>
-                    <Column id="authorCol" minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-                        <Text text="Autheur" />
-                    </Column>
-                    <Column id="genreCol" minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-                        <Text text="Genre" />
-                    </Column>
-                </columns>
-                <items>
-                    <ColumnListItem vAlign="Middle" >
-                        <cells>
-                            <ObjectIdentifier title="{Title}" />
-                            <Text text="{Author}" />
-                            <Text text="{Genre}" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
-    </Page>
+					<items>
+						<ColumnListItem vAlign="Middle">
+							<cells>
+								<ObjectIdentifier title="{Title}" />
+								<Text text="{Author}" />
+								<Text text="{Genre}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:DynamicPage>
+	
+	
+	
 </mvc:View>
