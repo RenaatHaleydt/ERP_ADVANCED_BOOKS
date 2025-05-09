@@ -2,5 +2,37 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+        <Table id="booksTable" items="{/BookSet}">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="Books" level="H2"/>
+                        <ToolbarSpacer/>
+                        <!-- <Button icon="sap-icon://activities" type="Transparent" press="onNavToOffers" text="Nav to Offers" /> -->
+                        <!-- <Button icon="sap-icon://excel-attachment" press="onExport"/> -->
+                        <!-- <Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed"/> -->
+
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="titleCol" width="12em">
+                        <Text text="Titel"></Text>
+                    </Column>
+                    <Column id="authorCol" minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                        <Text text="Autheur" />
+                    </Column>
+                    <Column id="genreCol" minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                        <Text text="Genre" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" >
+                        <cells>
+                            <ObjectIdentifier title="{Title}" />
+                            <Text text="{Author}" />
+                            <Text text="{Genre}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
     </Page>
 </mvc:View>
