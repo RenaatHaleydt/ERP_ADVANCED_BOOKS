@@ -10,19 +10,19 @@
 			<f:header>
 				<f:DynamicPageHeader>
 					<f:content>
-						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" >
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".filterTablePressed">
 							<fb:filterGroupItems>
-								<fb:FilterGroupItem name="Title" label="Title" groupName="Group1" visibleInFilterBar="true">
+								<fb:FilterGroupItem name="Genre" label="Genre" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<MultiComboBox
 											name="Name"
-											selectionChange=".onSelectionChange"
+											selectionChange=".onGenreSelected"
 											items="{
-												path: '/Genres',
+												path: '/GenreSet',
 												templateShareable: true
 											}"
 										>
-											<core:Item key="{key}" text="{name}"/>
+											<core:Item key="{Name}" text="{Name}"/>
 										</MultiComboBox>
 									</fb:control>
 								</fb:FilterGroupItem>
