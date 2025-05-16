@@ -98,7 +98,7 @@
         },
         {
           "name": "Detail",
-          "pattern": "Detail",
+          "pattern": "Detail/{title}/{author}",
           "target": [
             "TargetMain",
             "Detail"

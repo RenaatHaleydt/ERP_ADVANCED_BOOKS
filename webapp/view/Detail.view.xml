@@ -29,17 +29,19 @@
 			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
 				<m:Avatar
 					displaySize="L"
-					src="sap-icon://add-coursebook"
+					src="sap-icon://course-book"
 					class="sapUiSmallMarginEnd">
 				</m:Avatar>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Book Titel"/>
+				<!-- We kunnen de titel property gebruiken omdat we het aangeklikte boek opnieuw gebonden hebben met de Detail Controller.
+				Zie lijn 25 in Detail.controller.js -->
+					<m:Label text="{Title}"/>
 				</m:VBox>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Auteur"/>
+					<m:Label text="{Author}"/>
 				</m:VBox>
 				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Genre"/>
+					<m:Label text="{Genre}"/>
 				</m:VBox>
 			</m:FlexBox>
 		</headerContent>
