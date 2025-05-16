@@ -80,7 +80,7 @@
 					</columns>
 
 					<items>
-						<ColumnListItem vAlign="Middle">
+						<ColumnListItem vAlign="Middle" type="Navigation">
 							<cells>
 								<ObjectIdentifier title="{Title}" />
 								<Text text="{Author}" />

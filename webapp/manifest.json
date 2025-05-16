@@ -78,15 +78,14 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
+        "routerClass": "sap.f.routing.Router",
+        "controlAggregation": "beginColumnPages",
+        "controlId": "flexiID",
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
         "path": "booksapplication.view",
-        "async": true,
-        "viewPath": "booksapplication.view"
+        "async": true
       },
       "routes": [
         {
@@ -100,9 +99,9 @@
       "targets": {
         "TargetMain": {
           "id": "Main",
-          "name": "Main"
+          "name": "Main",
+          "transition": "slide"
         }
-      }
     },
     "rootView": {
       "viewName": "booksapplication.view.App",
