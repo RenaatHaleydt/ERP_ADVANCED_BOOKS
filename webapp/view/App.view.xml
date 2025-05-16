@@ -4,6 +4,14 @@
     xmlns="sap.m"
     xmlns:f="sap.f">
     <App id="app">
-        <f:FlexibleColumnLayout id="flexiID" layout="OneColumn"></f:FlexibleColumnLayout>
+    <!--
+        Hier maken we de Flexible Column Layout aan. Deze zorgt voor de navigatie binnen de applicatie.
+        De layout property beheert welke view er momenteel te zien is. Dit kan enkel de Master Page zijn, ofwel Master-Detail.
+        De {layoutModel>/layout} slaat op het layout JSON model dat we in de Component.js gemaakt hebben.
+        Dit houdt bij welke layout er momenteel op het scherm tevoorschijn moet komen.
+        Dit model wordt ook gemanipuleerd in de controllers van zodra de gebruiker op een rij in de tabel klikt.
+        Dan willen we namelijk dat de Detail page openklapt.
+    -->
+        <f:FlexibleColumnLayout id="flexiID" layout="{layoutModel>/layout}"></f:FlexibleColumnLayout>
     </App>
 </mvc:View>

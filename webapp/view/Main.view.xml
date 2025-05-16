@@ -26,34 +26,7 @@
 										</MultiComboBox>
 									</fb:control>
 								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
-									<fb:control>
-										<MultiComboBox
-											name="Category"
-											selectionChange=".onSelectionChange"
-											items="{
-												path: '/ProductCategories',
-												templateShareable: true
-											}"
-										>
-											<core:Item key="{key}" text="{name}"/>
-										</MultiComboBox>
-									</fb:control>
-								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
-									<fb:control>
-										<MultiComboBox
-											name="SupplierName"
-											selectionChange=".onSelectionChange"
-											items="{
-												path: '/ProductSuppliers',
-												templateShareable: true
-											}"
-										>
-											<core:Item key="{key}" text="{name}"/>
-										</MultiComboBox>
-									</fb:control>
-								</fb:FilterGroupItem>
+								
 							</fb:filterGroupItems>
 						</fb:FilterBar>
 					</f:content>
@@ -80,7 +53,12 @@
 					</columns>
 
 					<items>
-						<ColumnListItem vAlign="Middle" type="Navigation">
+						<!--
+							Hier voegen we navigatie toe aan elke rij in de tabel.
+							Wanneer de gebruiker klikt op een rij wordt de onListItemPress methode in de Main.controller aangesproken.
+							Deze beheerst op zijn beurt dan het LayoutModel dat voor de layout binnen de applicatie zorgt.
+						-->
+						<ColumnListItem vAlign="Middle" type="Navigation" press=".onListItemPress">
 							<cells>
 								<ObjectIdentifier title="{Title}" />
 								<Text text="{Author}" />

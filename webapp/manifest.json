@@ -94,6 +94,14 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "Detail",
+          "target": [
+            "TargetMain",
+            "Detail"
+          ]
         }
       ],
       "targets": {
@@ -101,7 +109,14 @@
           "id": "Main",
           "name": "Main",
           "transition": "slide"
+        },
+        "Detail": {
+          "id": "Detail",
+          "transition": "slide",
+          "name": "Detail",
+          "controlAggregation": "midColumnPages"
         }
+      }
     },
     "rootView": {
       "viewName": "booksapplication.view.App",

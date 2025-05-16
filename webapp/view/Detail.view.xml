@@ -1,0 +1,11 @@
+<mvc:View controllerName="booksapplication.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+	xmlns:f="sap.f">
+		<f:DynamicPage >
+        <f:content>
+        <Text text="Detail Page"/>
+        </f:content>
+		</f:DynamicPage>
+</mvc:View>
