@@ -4,6 +4,7 @@
 	xmlns:f="sap.f"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
 	controllerName="booksapplication.controller.Detail">
 	<!-- In de Detail controller hebben we een nieuw JSON model gemaakt waar we een property hebben toegevoegd om de pagina aan te passen.
 	Deze kunnen we op volgende manier gebruiken: "{bookModel>/editable}" -->
@@ -61,7 +62,14 @@
 										value="{Author}" editable="{bookModel>/editable}"
 									/>
 									<m:Label text="Genre"/>
-									<m:Input value="{Genre}" editable="{bookModel>/editable}"/>
+									<m:Select forceSelection="false" selectedKey="{Genre}" 
+										items="{
+											path: '/GenreSet',
+											sorter: { path: 'Name' }
+										}"
+										editable="{bookModel>/editable}">
+										<core:Item key="{Name}" text="{Name}" />
+									</m:Select>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
