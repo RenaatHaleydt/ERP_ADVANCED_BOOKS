@@ -4,6 +4,8 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("booksapplication.controller.Detail", {
+        // onInit is de methode die 1 keer wordt aangeroepen wanneer de view in de applicatie wordt ingeladen
+        // (wanneer deze op het scherm verschijnt)
         onInit() {
             // Wanneer deze controller geopend wordt weten we dat de gebruiker een boek geslecteerd heeft uit de lijst in de Main Page.
             // We nemen de router en hangen er een event aan vast.
@@ -11,6 +13,19 @@ sap.ui.define([
             // Dit gaat over de onBookPatternMatched methode
             let oRouter = this.getOwnerComponent().getRouter()
                 oRouter.getRoute("Detail").attachPatternMatched(this._onBookPatternMatched, this);
+            
+                let oBookModel = new sap.ui.model.json.JSONModel({
+                    editable: false,
+                    contactpersoon: {
+                        voornaam: "Renaat",
+                        familienaam: 'Haleydt',
+                        email: "info@renaat.be",
+                        telefoon: "09876543"
+                    }
+                });
+
+                // Lokaal JSON model binden aan de view, zodat we aan de data kunnen in de view en omgekeerd
+                this.getView().setModel(oBookModel, "bookModel");
         },
         _onBookPatternMatched(oEvent){
             // In de manifest.json zie je dat we in de Detail Route (lijn 101) een variabelen {title} en {author} hebben toegevoegd.
@@ -30,6 +45,9 @@ sap.ui.define([
                 //     $filter: "Genre eq 'Programmeren'"
                 // }
             });
+        },
+        onEditPressed(oEvent){
+            this.getView().getModel("bookModel").setProperty("/editable", true)
         }
     });
 });

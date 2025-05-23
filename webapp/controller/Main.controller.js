@@ -5,6 +5,8 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("booksapplication.controller.Main", {
+        // onInit is de methode die 1 keer wordt aangeroepen wanneer de view in de applicatie wordt ingeladen
+        // (wanneer deze op het scherm verschijnt)
         onInit() {
 
         },
