@@ -5,6 +5,8 @@
 	xmlns:form="sap.ui.layout.form"
 	xmlns:mvc="sap.ui.core.mvc"
 	controllerName="booksapplication.controller.Detail">
+	<!-- In de Detail controller hebben we een nieuw JSON model gemaakt waar we een property hebben toegevoegd om de pagina aan te passen.
+	Deze kunnen we op volgende manier gebruiken: "{bookModel>/editable}" -->
 	<ObjectPageLayout
 		id="ObjectPageLayout"
 		showTitleInHeaderContent="true"
@@ -12,7 +14,8 @@
 		preserveHeaderStateOnScroll="false"
 		headerContentPinnable="true"
 		isChildPage="true"
-		upperCaseAnchorBar="false">
+		upperCaseAnchorBar="false"
+		showFooter="{bookModel>/editable}">
 		<headerTitle>
 			<ObjectPageDynamicHeaderTitle>
 				<actions>
@@ -73,7 +76,7 @@
 		<footer>
 			<m:OverflowToolbar>
 				<m:ToolbarSpacer/>
-				<m:Button type="Accept" text="Save"/>
+				<m:Button type="Accept" text="Save" press="onSavePressed"/>
 				<m:Button type="Reject" text="Cancel"/>
 			</m:OverflowToolbar>
 		</footer>
